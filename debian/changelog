@@ -1,3 +1,9 @@
+wp360-udiskie (1.1.1-1) trixie; urgency=low
+
+  * Run udiskie daemon as root.
+
+ -- Overdigit <info@overdigit.com>  Tue, 13 Jan 2026 17:21:13 +0100
+
 wp360-udiskie (1.1.0-1) trixie; urgency=low
 
   * Add automatic execution of signed files when drives are plugged in.
