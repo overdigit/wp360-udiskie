@@ -1,26 +1,26 @@
 #!/usr/bin/env sh
 if [ -r "$1/autoexec.sh" ] && [ -r "$1/autoexec.sh.sig" ]
 then
-        keyrings=
-        for keyring in /usr/share/wp360-udiskie/keyrings/* /etc/wp360-udiskie/keyrings/*
-        do
-		if [ -r "${keyring}" ]
-		then
-	                keyrings="${keyrings} --keyring ${keyring}"
-		fi
-        done
-        if gpgv ${keyrings} "$1/autoexec.sh.sig" "$1/autoexec.sh" 2>/dev/null >/dev/null
+    keyrings=
+    for keyring in /usr/share/wp360-udiskie/keyrings/* /etc/wp360-udiskie/keyrings/*
+    do
+        if [ -r "${keyring}" ]
         then
-                MAC="$(cat /sys/class/net/eth0/address)"
-                if [ -r "$1/autoexec.list" ]
-                then
-                        if grep -q "$MAC" "$1/autoexec.list"
-                        then
-                                exit 0
-                        fi
-                fi
-                echo "$MAC" >> "$1/autoexec.list"
-
-                sh "$1/autoexec.sh"
+            keyrings="${keyrings} --keyring ${keyring}"
         fi
+    done
+    if gpgv ${keyrings} "$1/autoexec.sh.sig" "$1/autoexec.sh" 2>/dev/null >/dev/null
+    then
+        MAC="$(cat /sys/class/net/eth0/address)"
+        if [ -r "$1/autoexec.list" ]
+        then
+            if grep -q "$MAC" "$1/autoexec.list"
+            then
+                exit 0
+            fi
+        fi
+        echo "$MAC" >> "$1/autoexec.list"
+
+        sh "$1/autoexec.sh"
+    fi
 fi
