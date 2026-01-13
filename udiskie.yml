@@ -2,3 +2,4 @@ program_options:
   tray: false
   notify: false
   automount: true
+  event_hook: "/usr/bin/wp360-autoexec \"{mount_path}\""

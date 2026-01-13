@@ -12,5 +12,5 @@ Rules-Requires-Root: no
 Package: wp360-udiskie
 Architecture: all
 Maintainer: Overdigit <info@overdigit.com>
-Depends: ${misc:Depends}, udiskie
+Depends: ${misc:Depends}, udiskie, gpgv
 Description: Package containing udiskie configuration for the WP360 PLC.

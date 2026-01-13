@@ -1,3 +1,9 @@
+wp360-udiskie (1.1.0-1) trixie; urgency=low
+
+  * Add automatic execution of signed files when drives are plugged in.
+
+ -- Overdigit <info@overdigit.com>  Tue, 13 Jan 2026 15:55:52 +0100
+
 wp360-udiskie (1.0.0-2) bookworm trixie; urgency=low
 
   * Release for Trixie.
