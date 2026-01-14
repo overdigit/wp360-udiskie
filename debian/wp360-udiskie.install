@@ -1,0 +1,5 @@
+etc/udiskie.yml
+usr/share/polkit-1/rules.d/50-udiskie.rules
+usr/lib/systemd/system/wp360-udiskie.service
+usr/bin/wp360-autoexec
+usr/share/wp360-udiskie/keyrings/overdigit.gpg
