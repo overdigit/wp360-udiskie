@@ -1,12 +1,14 @@
 #!/usr/bin/env sh
-keyrings=
-for keyring in /usr/share/wp360-udiskie/keyrings/* /etc/wp360-udiskie/keyrings/*
-do
-    if [ -r "${keyring}" ]
-    then
-        keyrings="${keyrings} --keyring ${keyring}"
-    fi
-done
+load_keyrings() {
+    keyrings=
+    for keyring in /usr/share/wp360-udiskie/keyrings/* /etc/wp360-udiskie/keyrings/*
+    do
+        if [ -r "${keyring}" ]
+        then
+            keyrings="${keyrings} --keyring ${keyring}"
+        fi
+    done
+}
 
 MAC="$(cat /sys/class/net/eth0/address)"
 if [ -r "$1/autoexec.list" ]
@@ -24,6 +26,7 @@ do
     then
       continue
     fi
+    load_keyrings
     if gpgv ${keyrings} "${file}.sig" "${file}" 2>/dev/null >/dev/null
     then
         if [ "$EXECD" = "false" ]
