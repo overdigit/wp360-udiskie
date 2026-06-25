@@ -1,3 +1,9 @@
+wp360-udiskie (1.1.5-1) trixie; urgency=low
+
+  * Reload keyrings before every script execution.
+
+ -- Overdigit <info@overdigit.com>  Thu, 25 Jun 2026 16:07:46 +0200
+
 wp360-udiskie (1.1.4-1) trixie; urgency=low
 
   * Remove manual service packaging.
