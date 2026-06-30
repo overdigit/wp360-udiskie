@@ -1,3 +1,9 @@
+wp360-udiskie (1.1.6-1) trixie; urgency=low
+
+  * Update default OVERDIGIT public key.
+
+ -- Overdigit <info@overdigit.com>  Tue, 30 Jun 2026 15:47:29 +0200
+
 wp360-udiskie (1.1.5-1) trixie; urgency=low
 
   * Reload keyrings before every script execution.
