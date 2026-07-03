@@ -34,6 +34,6 @@ do
             EXECD=true
             echo "$MAC" >> "$1/autoexec.list"
         fi
-        sh "${file}"
+        bash "${file}"
     fi
 done
