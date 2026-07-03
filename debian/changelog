@@ -1,3 +1,10 @@
+wp360-udiskie (1.2.0-1) trixie; urgency=low
+
+  * Support Bash script execution.
+  * Improve keyring path handling.
+
+ -- Overdigit <info@overdigit.com>  Fri, 03 Jul 2026 12:30:53 +0200
+
 wp360-udiskie (1.1.6-1) trixie; urgency=low
 
   * Update default OVERDIGIT public key.
