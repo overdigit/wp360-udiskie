@@ -1,11 +1,11 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 load_keyrings() {
-    keyrings=
+    keyrings=()
     for keyring in /usr/share/wp360-udiskie/keyrings/* /etc/wp360-udiskie/keyrings/*
     do
         if [ -r "${keyring}" ]
         then
-            keyrings="${keyrings} --keyring ${keyring}"
+            keyrings+=( "--keyring" "${keyring}" )
         fi
     done
 }
@@ -27,7 +27,7 @@ do
       continue
     fi
     load_keyrings
-    if gpgv ${keyrings} "${file}.sig" "${file}" 2>/dev/null >/dev/null
+    if gpgv "${keyrings[@]}" "${file}.sig" "${file}" 2>/dev/null >/dev/null
     then
         if [ "$EXECD" = "false" ]
         then
