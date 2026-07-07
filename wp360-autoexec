@@ -10,30 +10,21 @@ load_keyrings() {
     done
 }
 
-MAC="$(cat /sys/class/net/eth0/address)"
-if [ -r "$1/autoexec.list" ]
+if [ -z "$1" ]
 then
-    if grep -q "$MAC" "$1/autoexec.list"
-    then
-        exit 0
-    fi
+    exit 0
 fi
 
-EXECD=false
-for file in "$1/wp360_"*
+for file in "$1/wp360_"*".sh"
 do
-    if [ "${file##*.}" != "sh" ]
+    if [ -f "$file" ]
     then
-      continue
-    fi
-    load_keyrings
-    if gpgv "${keyrings[@]}" "${file}.sig" "${file}" 2>/dev/null >/dev/null
-    then
-        if [ "$EXECD" = "false" ]
+        load_keyrings
+        if gpgv -q "${keyrings[@]}" "${file}.sig" "${file}"
         then
-            EXECD=true
-            echo "$MAC" >> "$1/autoexec.list"
+            bash "${file}"
+        else
+            echo "Invalid signature on ${file}"
         fi
-        bash "${file}"
     fi
 done
