@@ -1,3 +1,9 @@
+wp360-udiskie (1.3.2-1) trixie; urgency=low
+
+  * Automount drives in /media/.
+
+ -- Overdigit <info@overdigit.com>  Thu, 16 Jul 2026 17:52:55 +0200
+
 wp360-udiskie (1.3.1-1) trixie; urgency=medium
 
   * Mount FAT, exFAT, and NTFS drives as the codesyscontrol user.
