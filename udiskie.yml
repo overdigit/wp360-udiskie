@@ -3,3 +3,8 @@ program_options:
   notify: false
   automount: true
   event_hook: "/usr/libexec/wp360-udiskie/wp360-autoexec \"{mount_path}\""
+
+device_config:
+  - id_type: [vfat, exfat, ntfs]
+    options: [sync, uid=codesyscontrol]
+
